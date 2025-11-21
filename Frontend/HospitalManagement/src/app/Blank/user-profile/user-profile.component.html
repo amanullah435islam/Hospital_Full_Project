@@ -1,0 +1,32 @@
+
+<div class="container mt-4">
+  <h2>User Profile</h2>
+
+  <div class="card p-3 shadow-sm">
+    <div class="mb-3 text-center">
+      <img [src]="imagePreview || 'assets/default-profile.png'" width="150" height="150" class="rounded-circle" alt="User Image">
+    </div>
+
+    <div class="mb-3">
+      <label>Name:</label>
+      <input class="form-control" [value]="user.name" readonly>
+    </div>
+
+    <div class="mb-3">
+      <label>Email:</label>
+      <input class="form-control" [value]="user.email" readonly>
+    </div>
+
+    <div class="mb-3">
+      <label>Role:</label>
+      <input class="form-control" [value]="user.userRole" readonly>
+    </div>
+
+    
+    <div class="mb-3">
+      <label>Select Image:</label>
+      <input type="file" class="form-control" (change)="onImageSelected($event)">
+    </div>
+    <button class="btn btn-primary" (click)="uploadImage()">Upload Image</button>
+  </div>
+</div>

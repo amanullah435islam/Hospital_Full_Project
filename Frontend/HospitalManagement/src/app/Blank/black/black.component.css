@@ -1,0 +1,17 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #007bff, #00bcd4); /* colorful gradient */
+  padding: 12px 24px;
+  color: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.app-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+

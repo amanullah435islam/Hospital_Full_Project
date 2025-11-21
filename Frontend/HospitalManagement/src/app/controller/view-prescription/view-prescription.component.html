@@ -1,0 +1,88 @@
+<div id="prescription-content" style="padding: 20px;">
+  <!-- Patient Card -->
+  <div class="card mb-3">
+    <h3>Patient Details</h3>
+    <p><strong>ID:</strong> {{ data?.patient?.id }}</p>
+    <p><strong>Name:</strong> {{ data?.patient?.patientName }}</p>
+    <p><strong>Age:</strong> {{ data?.patient?.age }}</p>
+    <p><strong>Gender:</strong> {{ data?.patient?.gender }}</p>
+    <p><strong>Contact:</strong> {{ data?.patient?.phone }}</p>
+  </div>
+
+  <!-- Doctor Card -->
+  <div class="card mb-3">
+    <h3>Doctor Details</h3>
+    <p><strong>ID:</strong> {{ data?.doctor?.id }}</p>
+    <p><strong>Name:</strong> {{ data?.doctor?.doctorName }}</p>
+    <p><strong>Specialization:</strong> {{ data?.doctor?.specialize }}</p>
+    <p><strong>Contact:</strong> {{ data?.doctor?.contact }}</p>
+    <p><strong>Email:</strong> {{ data?.doctor?.email }}</p>
+  </div>
+
+  <!-- Appointment Card -->
+  <div class="card mb-3">
+    <h3>Appointment Details</h3>
+    <p><strong>ID:</strong> {{ data?.appointment?.id }}</p>
+    <p><strong>Code:</strong> {{ data?.appointment?.appointmentCode }}</p>
+    <p><strong>Date:</strong> {{ data?.appointment?.date }}</p>
+    <p><strong>Department:</strong> {{ data?.appointment?.department }}</p>
+  </div>
+
+  <!-- Medicine Table -->
+  <div class="card mb-3">
+    <h3>Prescribed Medicines</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Dose</th>
+          <th>Frequency</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let med of data?.medicines">
+          <td>{{ med.medicineCode}}</td>
+          <td>{{ med.medicineName }}</td>
+          <td>{{ med.dose }}</td>
+          <td>{{ med.frequency }}</td>
+          <td>{{ med.duration }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Lab Test Table -->
+  <div class="card mb-3">
+    <h3>Diagnostic Tests</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+           <th>Test Code</th>
+          <th>Test Name</th>       
+          <th>Test Type</th>
+          <th>Description</th>
+          <th>Unit</th>
+          <th>Normal Range</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+        <tr *ngFor="let test of data?.tests">
+          <td>{{ test.testCode }}</td>
+          <td>{{ test.testName }}</td>
+          <td>{{ test.testType }}</td>
+          <td>{{ test.description }}</td>
+          <td>{{ test.unit }}</td>
+          <td>{{ test.normalRange}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PDF Button -->
+<button class="btn btn-primary mt-3" (click)="generatePDF()">Download PDF</button>
+

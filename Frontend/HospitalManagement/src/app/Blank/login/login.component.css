@@ -1,0 +1,122 @@
+/* Container style */
+form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Headline */
+p {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Labels and Inputs */
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button Style */
+button[type="submit"] {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Role Label */
+select {
+  background-color: #f8f9fa;
+}
+
+
+
+/* dropdown */
+form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+p {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+option {
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+}

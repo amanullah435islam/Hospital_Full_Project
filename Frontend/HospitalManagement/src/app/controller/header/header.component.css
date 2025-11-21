@@ -1,0 +1,197 @@
+/* CSS (component.css or global.css) */
+
+/* CSS (component.css বা global styles.css) */
+.circle-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.circle-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover Effect */
+.circle-link:hover {
+  background-color: #ffffff33; /* light transparent white */
+  color: #000; /* black text on hover */
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+/* Primary Navbar */
+.primary-navbar {
+  background-color: hsl(211, 100%, 50%);
+  color: white;
+  font-weight: bold;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%; /* ⭕ Makes the image circular */
+  border: 2px solid #fff; /* Optional white border */
+}
+
+
+
+/* Search Box Styling */
+.search-box input {
+  width: 250px;
+  border-radius: 20px;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+}
+
+/* Nav Items */
+.nav-link {
+  padding: 8px 15px;
+  font-weight: 500;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  border-radius: 8px;
+}
+
+
+
+/* //secondary nav bar: */
+
+/* Secondary navbar background */
+.secondary-navbar {
+  background-color: #28a745; /* Green or your preferred color */
+  padding: 0.5rem 1rem;
+}
+
+/* Colorful dropdown menu */
+.colorful-dropdown {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+/* Dropdown item style */
+.colorful-dropdown .dropdown-item {
+  width: 100%;
+  padding: 10px 15px;
+  color: #333;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.colorful-dropdown .dropdown-item:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+
+
+/* Secondary navbar nav links */
+.secondary-navbar .nav-link {
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  transition: background 0.3s;
+}
+
+.secondary-navbar .nav-link:hover {
+  background-color: #218838;
+  border-radius: 5px;
+}
+
+
+
+
+/* Show dropdown on hover */
+.hover-dropdown:hover > .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* Ensure bootstrap override */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+
+
+
+/* Dropdown item full width */
+.dropdown-item {
+  width: 100%;
+  padding: 10px 15px;
+  font-weight: 500;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Submenu styles */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
+  margin-top: -0.5rem;
+  border-radius: 5px;
+}
+
+/* Show submenu on hover */
+.hover-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+
+
+
+
+.rounded-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f0f0f0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.rounded-btn:hover {
+  background-color: #e0e0e0;
+}

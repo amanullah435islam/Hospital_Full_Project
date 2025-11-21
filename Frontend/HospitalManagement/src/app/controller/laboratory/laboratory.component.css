@@ -1,0 +1,30 @@
+.lab-container {
+  padding: 20px;
+  background-color: #f4f9ff;
+}
+
+.lab-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  max-width: 960px;
+  margin: auto;
+}
+
+.section-title {
+  color: #198754;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #198754;
+  padding-bottom: 5px;
+}
+
+.lab-table th, .lab-table td {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.btn-sm {
+  font-size: 13px;
+  padding: 5px 10px;
+}

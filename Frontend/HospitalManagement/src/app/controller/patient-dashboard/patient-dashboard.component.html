@@ -1,0 +1,86 @@
+<div class="dashboard-container" *ngIf="prescription">
+  <div class="card">
+    <h2 class="section-title">🧑‍⚕️ Prescription Summary</h2>
+
+    <div class="info-block">
+      <p><strong>👤 Patient:</strong> {{ prescription.patient.patientName }}</p>
+      <p><strong>👨‍⚕️ Doctor:</strong> {{ prescription.doctor.doctorName }}</p>
+      <p><strong>📅 Appointment Date:</strong> {{ prescription.appointment.date }}</p>
+    </div>
+
+    <!-- Medicines Table -->
+    <div class="section">
+      <h3>💊 Prescribed Medicines</h3>
+      <table class="styled-table">
+        <thead>
+          <tr>
+          <th>Medicine Code</th>
+          <th>Medicines Name</th>
+          <th>Dose</th>
+          <th>Frequency</th>
+          <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let med of prescription.medicines">
+          <td>{{ med.medicineCode}}</td>
+          <td>{{ med.medicineName }}</td>
+          <td>{{ med.dose }}</td>
+          <td>{{ med.frequency }}</td>
+          <td>{{ med.duration }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Lab Tests Table -->
+    <div class="section">
+      <h3>🧪 Lab Tests</h3>
+      <table class="styled-table">
+        <thead>
+          <tr>
+          <th>Test Code</th>
+          <th>Test Name</th>       
+          <th>Test Type</th>
+          <th>Description</th>
+          <th>Unit</th>
+          <th>Normal Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let test of prescription.tests">
+          <td>{{ test.testCode }}</td>
+          <td>{{ test.testName }}</td>
+          <td>{{ test.testType }}</td>
+          <td>{{ test.description }}</td>
+          <td>{{ test.unit }}</td>
+          <td>{{ test.normalRange}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- patient-dashboard.component.html -->
+<h3>🧪 My Lab Tests</h3>
+<table class="table table-bordered">
+  <thead class="table-success">
+    <tr>
+      <th>Test Name</th>
+      <th>Test Type</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let test of myTests">
+      <td>{{ test.testName }}</td>
+      <td>{{ test.testType }}</td>
+      <td>
+        <button class="btn btn-sm btn-info" (click)="viewReport(test)">📄 View Report</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

@@ -1,0 +1,12 @@
+<p>report works!</p>
+<div class="container mt-4">
+  <h3>Income Report</h3>
+
+  <select [(ngModel)]="selectedFilter" (change)="loadIncomeChart()" class="form-select w-25 mb-3">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+  </select>
+
+  <canvas id="incomeChart"></canvas>
+</div>

@@ -1,0 +1,26 @@
+<!-- akane ai "id='labReportContent'"  dore pdf kora hoice-->
+<div id="labReportContent">
+<div class="report-container">
+  <h2 class="text-center">🧪 Lab Test Report</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <h4>Patient Info</h4>
+      <p><strong>Name:</strong> {{ reportData?.patientName }}</p>
+      <p><strong>Patient ID:</strong> {{ reportData?.patientId }}</p>
+      <p><strong>Age:</strong> {{ reportData?.age }}</p>
+      <hr />
+      <h4>Test Info</h4>
+      <p><strong>Test Name:</strong> {{ reportData?.testName }}</p>
+      <p><strong>Test Type:</strong> {{ reportData?.testType }}</p>
+      <p><strong>Description:</strong> {{ reportData?.description }}</p>
+      <p><strong>Normal Range:</strong> {{ reportData?.normalRange }}</p>
+      <p><strong>Unit:</strong> {{ reportData?.unit }}</p>
+      <hr />
+      <p><strong>Date:</strong> {{ todayDate }}</p>
+    </div>
+  </div>
+</div>
+</div>
+<!-- PDF Button -->
+<button class="btn btn-primary mt-3" (click)="generateTestPDF()">Download PDF</button>

@@ -1,0 +1,224 @@
+/* Primary Navbar */
+.primary-navbar {
+  background-color: hsl(211, 100%, 50%);
+  color: white;
+  font-weight: bold;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%; /* ⭕ Makes the image circular */
+  border: 2px solid #fff; /* Optional white border */
+}
+
+
+
+.sidebar {
+  width: 260px;
+  background-color: #28a745;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 100vh; 
+  position: sticky;
+  top: 0;
+}
+
+/* --- Basic Reset and Box Sizing --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Body Styling --- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* --- Header --- */
+.admin-header {
+  background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-header h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.admin-profile {
+  background: #ffffff33;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-profile:hover {
+  background: #ffffff66;
+}
+
+/* --- Layout --- */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 72px); /* subtract header height approx */
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 250px;
+  background: #243B55; /* Dark Blue */
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* Sidebar ul & li reset */
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li,
+.sidebar .dropdown {
+  padding: 0 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Simple links */
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background: #28a745; /* lighter blue */
+  color: #fff;
+}
+
+/* --- Dropdown Button --- */
+.dropdown-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* Add little arrow icon */
+.dropdown-btn::after {
+  content: "▼";
+  position: absolute;
+  right: 1rem;
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+/* On hover change bg */
+.dropdown-btn:hover {
+  background-color: #28a745;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  background: #34495E; /* Darker blue */
+  padding-left: 1rem;
+  border-radius: 0 0 5px 5px;
+  margin-top: -0.2rem;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  display: block;
+  color: #ddd;
+  padding: 0.6rem 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background: #5C7AEA;
+  color: white;
+}
+
+/* Show dropdown-content on dropdown-btn hover (for desktop) */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* --- Main Content --- */
+.main-content {
+  flex-grow: 1;
+  background: white;
+  padding: 2rem;
+  box-shadow: inset 0 0 10px #ddd;
+  overflow-y: auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  .main-content {
+    padding: 1rem;
+  }
+  .dropdown-content {
+    padding-left: 0.5rem;
+  }
+}
+
+/* --- Scrollbar Styling for sidebar --- */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #243B55;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #4364F7;
+  border-radius: 10px;
+}
+
+/* --- Smooth transitions --- */
+.dropdown-btn,
+.dropdown-content a,
+.sidebar ul li a {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

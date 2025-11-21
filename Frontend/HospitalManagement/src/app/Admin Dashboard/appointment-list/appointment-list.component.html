@@ -1,0 +1,109 @@
+<!-- 
+  <div style="text-align: center;">
+  <h2>Appointment List</h2>
+</div><br><br><br>
+
+  <div class="top-barx">
+  <button class="add-button" [routerLink]="['/appointment']">+ Add Appointment</button>
+  </div>
+<div class="table-responsive container">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Appointment Code</th>
+        <th>Patient Name</th>
+        <th>Doctor Name</th>
+        <th>Department</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Booking Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of appointments">
+        <td>{{ a.id }}</td>
+        <td>{{ a.appointmentCode}}</td>
+        <td>{{ a.patientName}}</td>
+        <td>{{ a.doctorName }}</td>
+        <td>{{ a.department}}</td>
+        <td>{{ a.date | date }}</td>
+        <td>{{ a.status === 1 ? 'Approved' : 'Pending' }}</td>
+        <td>{{ a.bookingDate| date }}</td>
+        <td>
+          <button class="btn btn-success btn-sm" (click)="approve(a)" *ngIf="a.status != 1">
+            ✅ Approve
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="cancel(a)">
+            ❌ Cancel
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ -->
+<div class="page-container">
+
+  <div class="header">
+    <h2>Appointment List</h2>
+    <button class="add-button" [routerLink]="['/appointment']">+ Add Appointment</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Appointment Code</th>
+          <th>Patient Name</th>
+          <th>Doctor Name</th>
+          <th>Department</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Booking Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- cancel button click korle direct delete hobe -->
+        <!-- <tr *ngFor="let a of appointments">
+          <td>{{ a.id }}</td>
+          <td>{{ a.appointmentCode }}</td>
+          <td>{{ a.patientName }}</td>
+          <td>{{ a.doctorName }}</td>
+          <td>{{ a.department }}</td>
+          <td>{{ a.date | date }}</td>
+          <td>{{ a.status === 1 ? 'Approved' : 'Pending' }}</td>
+          <td>{{ a.bookingDate | date }}</td>
+          <td>
+            <button class="approve-btn" *ngIf="a.status != 1" (click)="approve(a)">✅ Approve</button>
+            <button class="cancel-btn" (click)="cancel(a)">❌ Cancel</button>
+          </td>
+        </tr> -->
+
+
+
+        <!-- cancel button click korle delete hobem na but status change hobe -->
+        <tr *ngFor="let a of appointments">
+         <td>{{ a.id }}</td>
+          <td>{{ a.appointmentCode }}</td>
+          <td>{{ a.patientName }}</td>
+          <td>{{ a.doctorName }}</td>
+          <td>{{ a.department }}</td>
+          <td>{{ a.date | date }}</td>
+          <td>{{ getStatusText(a.status!) }}</td>
+          <td>{{ a.bookingDate | date }}</td>
+          <td>
+    <button class="approve-btn" (click)="approve(a)" [disabled]="a.status === 1">✅ Approve</button>
+    <button class="cancel-btn" (click)="cancel(a)" [disabled]="a.status === 2">❌ Cancel</button>
+  </td>
+</tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,58 @@
+<p>lab-panel works!</p>
+<!-- ✅ Header -->
+<header class="admin-header">
+ <div>
+    <a class="navbar-brand d-flex align-items-center" href="maincomp">
+      <img src="assets\images\hospital-logo-vector_1277164-14205.avif" alt="" class="logo-img me-2" />
+      <span>Our Hospital</span>
+    </a>
+ </div>
+  <div class="admin-profile">Admin Profile</div>
+</header>
+
+<!-- ✅ Layout: Sidebar + Content -->
+<div class="layout">
+  <nav class="sidebar">
+     <h2>Admin Panel</h2>
+    <ul>
+        <li>
+        <a href="labDas"> Lab Dashboard</a>
+      </li>
+
+        <!-- <li>
+        <a href="labDas"> Lab Test</a>
+      </li> -->
+
+      <div class="dropdown">
+        <button class="dropdown-btn">Lab Test</button>
+        <div class="dropdown-content">
+            <a href="addLab">Search</a>
+            <a href="addLab">View</a>
+            <a href="addLab">Add</a>
+            <a href="addLab">Update</a>
+        </div>
+        </div>
+
+        <div class="dropdown">
+        <button class="dropdown-btn">Payment Process</button>
+        <div class="dropdown-content">
+            <a href="pay">Payment</a>
+            <a routerLink="pay">Income</a>
+            <a href="pay">Process</a>
+            <a href="pay">Feedback</a>
+        </div>
+        </div>
+
+    
+
+      <li>
+        <a href="#">Loss & Profit</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

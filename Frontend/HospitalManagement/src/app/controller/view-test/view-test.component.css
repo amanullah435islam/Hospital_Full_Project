@@ -1,0 +1,16 @@
+.report-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.card-body {
+  padding: 20px;
+}
+h2, h4 {
+  text-align: center;
+}

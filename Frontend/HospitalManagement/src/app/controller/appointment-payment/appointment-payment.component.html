@@ -1,0 +1,149 @@
+<div class="container-fluid full-form-wrapper">
+<!-- <h2 class="text-center">{{ formLabel }}</h2> -->
+<form [formGroup]="addForm" class="col-md-6">
+
+  <div class="form-group" class="aman">
+    <label>Payment Code:</label>
+    <input type="number" class="form-control" formControlName="paymentCode" />
+  </div>
+
+  <div class="form-group" class="aman">
+  <label class="form-label">Choose Patient</label>
+  <select formControlName="patientId" class="form-control" (change)="onDoctorSelection($event)">
+    <option value="">-- Select --</option>
+    <option *ngFor="let entity of ptns" [value]="entity.id">
+      {{ entity.patientName }}
+    </option>
+  </select>
+</div>
+
+  <div class="form-group" class="aman">
+    <label>paymentDate:</label>
+    <input type="date" class="form-control" formControlName="paymentDate" />
+  </div>
+
+  <div class="form-group" ngClass="aman" class="aman">
+    <label>Amount:</label>
+    <input type="number" class="form-control" formControlName="amount" />
+  </div>
+
+
+  <div class="form-group" class="aman">
+    <label>Payment Method:</label>
+  <select formControlName="paymentMethod" class="form-control">
+  <option value="">--Select--</option>
+  <option value="CASH">Cash</option>
+  <option value="CARD">Card</option>
+  <option value="MOBILE">Mobile</option>
+</select>
+ </div>
+
+
+ 
+<!-- Mobile Payment Fields (Bkash/Nagad) -->
+<div *ngIf="addForm.value.paymentMethod === 'MOBILE'" class="form-group mt-3">
+  <label>Mobile Number (Bkash/Nagad)</label>
+  <input type="text" class="form-control" formControlName="mobileNumber" placeholder="e.g. 01XXXXXXXXX" />
+
+  <label class="mt-2">Transaction ID</label>
+  <input type="text" class="form-control" formControlName="transactionId" placeholder="e.g. TXN123456" />
+</div>
+
+<!-- Card Payment Fields -->
+<div *ngIf="addForm.value.paymentMethod === 'CARD'" class="form-group mt-3">
+  <label>Card Number</label>
+  <input type="text" class="form-control" formControlName="cardNumber" placeholder="e.g. 4111 1111 1111 1111" />
+
+  <label class="mt-2">Expiry Date</label>
+  <input type="month" class="form-control" formControlName="cardExpiry" />
+</div>
+
+
+ <div class="text-center mt-3">
+  <button
+    class="btn btn-success"
+    [disabled]="addForm.invalid"
+    *ngIf="saveMode"
+    (click)="addPayment()">
+    Save
+  </button>
+
+  <button
+    class="btn btn-secondary"
+    type="button"
+    (click)="addForm.reset()">
+    Cancel
+  </button>
+</div>
+
+
+</form>
+</div>
+
+<h2 class="mt-4">Payment Details</h2>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Payment Code</th>
+        <th>Patient Name</th>
+        <th>Payment Date</th>
+        <th>Amount</th>
+        <th>paymentMethod</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of payments">
+        <td>{{ p.id }}</td>
+        <td>{{ p.paymentCode }}</td>
+        <td>{{ p.patientId}}</td>
+        <td>{{ p.paymentDate | date}}</td>
+        <td>{{ p.amount }}</td>
+        <td>{{ p.paymentMethod }}</td>
+      
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid full-form-wrapper">
+  <form [formGroup]="addForm" class="col-md-6">
+  
+
+   
+    <div *ngIf="addForm.value.paymentMethod === 'MOBILE'" class="form-group mt-3">
+      <label>Mobile Number (Bkash/Nagad)</label>
+      <input type="text" class="form-control" formControlName="mobileNumber" placeholder="e.g. 01XXXXXXXXX" />
+
+      <label class="mt-2">Transaction ID</label>
+      <input type="text" class="form-control" formControlName="transactionId" placeholder="e.g. TXN123456" />
+    </div>
+
+  
+    <div *ngIf="addForm.value.paymentMethod === 'CARD'" class="form-group mt-3">
+      <label>Card Number</label>
+      <input type="text" class="form-control" formControlName="cardNumber" placeholder="e.g. 4111 1111 1111 1111" />
+
+      <label class="mt-2">Expiry Date</label>
+      <input type="month" class="form-control" formControlName="cardExpiry" />
+    </div>
+
+  
+    <div class="text-center mt-3">
+      <button class="btn btn-success" [disabled]="addForm.invalid" (click)="addPayment()">
+        Save
+      </button>
+    </div>
+  </form>
+</div> -->

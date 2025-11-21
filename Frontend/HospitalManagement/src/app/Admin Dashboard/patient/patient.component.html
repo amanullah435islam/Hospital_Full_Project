@@ -1,0 +1,55 @@
+
+    <div >
+      <h2 >Add a New Patient</h2>
+    </div>
+    <div >
+      <form autocomplete="off" #empForm="ngForm" (ngSubmit)="Add(patient)">
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Patient Code:</label>
+            <input type="number" name="patientCode" class="form-control" [(ngModel)]="patient.patientCode" required />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">patient Name:</label>
+            <input type="text" name="patientName" class="form-control" [(ngModel)]="patient.patientName" required />
+          </div>
+
+          <div class="col-md-6 mb-3">
+              <label class="form-label">Age:</label>
+              <input type="number" name="age" class="form-control" [(ngModel)]="patient.age" required />
+            </div>
+        
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Date of Birth:</label>
+            <input type="date" name="dob" class="form-control" [(ngModel)]="patient.dob" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Last Visit:</label>
+            <input type="date" name="lastVisit" class="form-control" [(ngModel)]="patient.lastVisit" />
+          </div>
+
+            <div class="col-md-6 mb-3">
+            <label class="form-label">Gender:</label>
+            <select name="gender" class="form-control" [(ngModel)]="patient.gender" required>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div> 
+
+            <div class="col-md-6 mb-3">
+            <label class="form-label">Phone:</label>
+            <input type="phone" name="phone" class="form-control" [(ngModel)]="patient.phone" />
+          </div>
+
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Visit Ammount:</label>
+            <input type="number" name="visitAmmount" class="form-control" [(ngModel)]="patient.visitAmount" />
+          </div>
+
+          
+        </div>
+        <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Save</button>
+      </form>
+    </div>

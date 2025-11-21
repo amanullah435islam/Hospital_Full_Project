@@ -1,0 +1,105 @@
+<form #doctorForm="ngForm" (ngSubmit)="onSubmit()" class="form-container">
+  <h2>Add Doctor</h2>
+  
+  <div class="form-row">
+    <!-- Doctor Code -->
+    <div class="form-field">
+      <label><i class="fas fa-barcode"></i> Doctor Code</label>
+      <i class="fas fa-barcode input-icon"></i>
+      <input type="number" name="doctorCode" [(ngModel)]="doctor.doctorCode">
+    </div>
+
+    <!-- Doctor Name -->
+    <div class="form-field">
+      <label><i class="fas fa-pills"></i> Doctor Name</label>
+      <i class="fas fa-pills input-icon"></i>
+      <input name="doctorName" [(ngModel)]="doctor.doctorName">
+    </div>
+  </div>
+
+
+    <div class="form-row">
+      <!-- Stock -->
+      <div class="form-field">
+          <label><i class="fas fa-boxes"></i> Specialize:</label>
+          <i class="fas fa-boxes input-icon"></i>
+            <select class="form-control" [(ngModel)]="doctor.specialize" name="specialize">
+              <option value="">-- Select Department --</option>
+              <option value="Pathology">Pathology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Dermatologist">Dermatologist</option>
+              <option value="Ophthalmologist">Ophthalmologist</option>
+            </select>
+      </div>
+
+      <!-- Contact -->
+      <div class="form-field">
+        <label><i class="fas fa-boxes"></i> Contact</label>
+        <i class="fas fa-boxes input-icon"></i>
+        <input name="contact" [(ngModel)]="doctor.contact">
+      </div>
+    </div>
+
+
+<div class="form-row">
+    <!-- Description -->
+    <div class="form-field">
+      <label><i class="fas fa-align-left"></i> Availability:</label>
+      <i class="fas fa-align-left input-icon"></i>
+      <select class="form-control" [(ngModel)]="doctor.availability" name="availability">
+          <option value="">-- Select TimeSlot --</option>
+          <option value="09:00-12:00">Morning</option>
+          <option value="12:00-15:00">Afternoon</option>
+          <option value="15:00-18:00">Evening</option>
+          <option value="18:00-21:00">Night</option>
+        </select>
+    </div>
+
+      <!-- Email -->
+      <div class="form-field">
+        <label><i class="fas fa-boxes"></i> Email</label>
+        <i class="fas fa-boxes input-icon"></i>
+        <input name="email" [(ngModel)]="doctor.email">
+      </div>
+</div>
+
+    <div class="form-field">
+        <label><i class="fas fa-boxes"></i> RoomNumber:</label>
+        <i class="fas fa-boxes input-icon"></i>
+        <input name="roomNumber" [(ngModel)]="doctor.roomNumber">
+      </div>
+
+  <!-- Description -->
+  <div class="form-field">
+    <label><i class="fas fa-align-left"></i> Description</label>
+    <i class="fas fa-align-left input-icon"></i>
+    <textarea name="description" [(ngModel)]="doctor.description" rows="4"></textarea>
+  </div>
+
+
+
+
+  <!-- Image Upload old -->
+  <div class="form-field file-upload">
+  <label><i class="fas fa-camera"></i> Medicine Photo</label>
+  <div class="file-upload-container">
+    <label for="fileInput" class="file-input-label">
+      <i class="fas fa-cloud-upload-alt"></i> Choose File
+    </label>
+    <input id="fileInput" type="file" (change)="onFileChanged($event)">
+    <div class="image-preview">
+      <img [src]="imgURL" *ngIf="imgURL" height="120">
+    </div>
+  </div>
+</div>
+
+
+
+  <button type="submit" class="submit-btn" [disabled]="doctorForm.invalid">
+    <i class="fas fa-save"></i> Save Doctor
+  </button>
+</form>
+

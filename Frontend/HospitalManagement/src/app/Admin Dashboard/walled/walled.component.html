@@ -1,0 +1,45 @@
+  <div style="text-align: center;">
+  <h2>Admin Wallet - Payment History</h2>
+</div><br><br><br>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Payment Code</th>
+      <th>Patient ID</th>
+      <th>Payment Date</th>
+      <th>Amount</th>
+      <th>Payment Method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of appointmentPayments">
+      <td>{{ p.paymentCode }}</td>
+      <td>{{ p.patientId }}</td>
+      <td>{{ p.paymentDate | date }}</td>
+      <td>{{ p.amount }}</td>
+      <td>{{ p.paymentMethod }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<h2 class="mt-4">🧪 Lab Test Payments</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Patient ID</th>
+      <th>Test Code</th>
+      <th>Amount</th>
+      <th>Payment Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of labTestPayments">
+      <td>{{ p.patientId }}</td>
+      <td>{{ p.testCode }}</td>
+      <td>{{ p.amount }}</td>
+      <td>{{ p.paymentDate | date:'short' }}</td>
+    </tr>
+  </tbody>
+</table>

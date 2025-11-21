@@ -1,0 +1,22 @@
+.prescription-container {
+  padding: 20px;
+}
+.card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px #eee;
+}
+.table-container {
+  margin-top: 20px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}

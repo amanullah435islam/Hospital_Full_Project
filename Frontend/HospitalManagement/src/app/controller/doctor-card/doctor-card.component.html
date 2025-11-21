@@ -1,0 +1,111 @@
+
+<div class="container my-4">
+  <h2 class="mb-4">Our Doctors</h2>
+
+  <!-- Search and Filter -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Search by name or degree" 
+             [(ngModel)]="searchTerm" (input)="filterDoctors()">
+    </div>
+
+    <div class="col-md-6">
+      <select class="form-select" [(ngModel)]="selectedDepartment" (change)="filterDoctors()">
+        <option value="">-- Select Department --</option>
+        <option *ngFor="let dept of specialize" [value]="dept">{{dept}}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Doctors Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let doctor of filteredDoctors">
+      <div class="card h-100 shadow-sm">
+        <img [src]="'http://localhost:8080/image/' + doctor.image"
+             alt="{{ doctor.doctorName }}" class="card-img-top" height="200">
+
+        <div class="card-body">
+          <h5 class="card-title">{{ doctor.doctorName }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Department: {{doctor.specialize}}</h6>
+          <p class="mb-1">Email: {{ doctor.email }}</p>
+          <p class="mb-1">Room No: {{doctor.roomNumber}}</p>
+        </div>
+
+        <div class="card-footer bg-transparent d-flex justify-content-between">
+          <button class="btn btn-sm btn-outline-primary"
+                  data-bs-toggle="modal" [attr.data-bs-target]="'#detailsModal'+doctor.id">
+            View Details
+          </button>
+          <button class="btn btn-sm btn-success" (click)="bookDoctor(doctor)">
+            Book
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Doctors Found -->
+  <div *ngIf="filteredDoctors.length === 0" class="alert alert-info mt-3">
+    No doctors found matching your criteria.
+  </div>
+
+  <!-- Doctor Details Modal -->
+  <div *ngFor="let doctor of filteredDoctors" class="modal fade" [id]="'detailsModal'+doctor.id" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Dr. {{doctor.doctorName}} Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Department:</strong> {{doctor.specialize}}</p>
+          <p><strong>Email:</strong> {{doctor.email}}</p>
+          <p><strong>Room No:</strong> {{doctor.roomNumber}}</p>
+          <p *ngIf="doctor.contact"><strong>Contact:</strong> {{doctor.contact}}</p>
+          <p *ngIf="doctor.availability"><strong>Available:</strong> {{doctor.availability}}</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- main code: -->
+<!-- 
+<div class="product-grid">
+  <div class="product-card" *ngFor="let doctor of doctors">
+    <img
+      [src]="'http://localhost:8080/image/' + doctor.image"
+      alt="{{ doctor.doctorName }}"
+      class="product-image"
+    />
+
+    <div class="product-info">
+      <h3>{{ doctor.doctorName }}</h3>
+      <p>{{ doctor.specialize}}</p>
+      <p>{{ doctor.description}}</p>
+
+      <div class="product-buttons">
+           <button class="btn btn-sm btn-outline-primary me-2" 
+                  data-bs-toggle="modal" [attr.data-bs-target]="'#detailsModal'+doctor.id">
+            View Details
+          </button>
+         <button class="btn btn-sm btn-success" 
+            [routerLink]="['/appointment']">
+            Book Appointment
+          </button>
+      </div>
+    </div>
+  </div>
+</div>
+ -->

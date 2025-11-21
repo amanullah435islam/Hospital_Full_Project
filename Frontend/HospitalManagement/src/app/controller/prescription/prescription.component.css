@@ -1,0 +1,55 @@
+.prescription-container {
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.medicine-form, .test-form {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.prescribe-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+

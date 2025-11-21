@@ -1,0 +1,33 @@
+{
+  "user": [
+    {
+      "id": "e85b",
+      "firstName": "Md. Amanullah",
+      "lastName": "Islam",
+      "username": "aman",
+      "email": "aman@",
+      "contact": "01425369852",
+      "password": "1122",
+      "confirmpassword": "1122"
+    },
+    {
+      "id": "dad0",
+      "firstName": "Md. Tajul",
+      "lastName": "Islam",
+      "username": "babu",
+      "email": "babu@",
+      "contact": "01547874545",
+      "password": "1234",
+      "confirmpassword": "1234"
+    },
+    {
+      "id": "74c2",
+      "userCode": 10,
+      "name": "Md. Amanullah Islam",
+      "username": "aman",
+      "email": "amanullah440islam@gmail.com",
+      "password": "1234",
+      "roleId": 1
+    }
+  ]
+}

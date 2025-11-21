@@ -1,0 +1,112 @@
+<div class="pharmacist-billing-container">
+  <h2>Pharmacist Billing</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  <div *ngIf="isLoading" class="loading-spinner">Loading...</div>
+
+  
+  <div *ngIf="currentPrescription" class="prescription-summary card-section">
+    <div class="card patient-card">
+      <h3>Prescription Details</h3>
+      <p><strong>Prescription ID:</strong> {{ currentPrescription.id }}</p>
+      <p><strong>Patient:</strong> {{ currentPrescription.patientName }}</p>
+      <p><strong>Doctor:</strong> {{ currentPrescription.doctorName }}</p>
+      <p><strong>Date:</strong> {{ currentPrescription.Date | date:'mediumDate' }}</p>
+
+      
+
+      <h4>Prescribed Medicines:</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Medicine Name</th>
+            <th>Dose</th>
+            <th>Frequency</th>
+            <th>Duration</th>
+            <th>Quantity Prescribed</th> <!-- Added this, assuming it's in your PrescriptionMedicine entity -->
+          </tr>
+        </thead>
+            <tbody>
+            <tr *ngFor="let pm of currentPrescription.prescriptionMedicines">
+            <td>{{ pm.medicine?.name }}</td>
+            <td>{{ pm.dosage }}</td>
+            <td>{{ pm.duration }}</td>
+            <td>{{ pm.instructions }}</td>
+            <td>{{ pm.quantityPrescribed }}</td>
+          </tr>
+          <tr *ngIf="!currentPrescription.prescriptionMedicines || currentPrescription.prescriptionMedicines.length === 0">
+            <td colspan="5">No prescribed medicines found.</td>
+          </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="currentSale" class="sale-details card-section mt-4">
+    <div class="card sale-card">
+      <h3>Sale Details (Bill ID: {{ currentSale.id }})</h3>
+      <p><strong>Sale Date:</strong> {{ currentSale.saleDate | date:'medium' }}</p>
+      <p><strong>Total Bill:</strong> {{ currentSale.totalAmount | currency:'BDT':'symbol' }}</p>
+      <p><strong>Paid Amount:</strong> {{ currentSale.paidAmount | currency:'BDT':'symbol' }}</p>
+      <p><strong>Due Amount:</strong> {{ currentSale.dueAmount | currency:'BDT':'symbol' }}</p>
+      <p><strong>Bill Status:</strong> {{ currentSale.status }}</p>
+      <p><strong>Sold By:</strong> {{ currentSale.soldBy }}</p>
+
+      <h4>Medicines in Bill:</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Medicine</th>
+            <th>Strength</th>
+            <th>Qty</th>
+            <th>Price/Unit</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let med of currentSale.medicines">
+            <td>{{ med.medicineName }}</td>
+            <td>{{ med.strength }}</td>
+            <td>{{ med.quantityPrescribed }}</td>
+            <td>{{ med.pricePerUnit | currency:'BDT':'symbol' }}</td>
+            <td>{{ med.subtotal | currency:'BDT':'symbol' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="currentSale.status !== 'PAID'" class="payment-section">
+        <h4>Process Payment</h4>
+        <div class="form-group">
+          <label for="paidAmount">Amount to Pay:</label>
+          <input type="number" id="paidAmount" class="form-control"
+                 [(ngModel)]="paidAmount" [min]="0" [max]="currentSale.dueAmount" step="0.01">
+        </div>
+        <div class="form-group">
+          <label for="paymentMethod">Payment Method:</label>
+          <select id="paymentMethod" class="form-control" [(ngModel)]="paymentMethod">
+            <option value="CASH">Cash</option>
+            <option value="CARD">Card</option>
+            <option value="BKASH">bKash</option>
+          </select>
+        </div>
+      <button (click)="processPayment()" 
+        [disabled]="isLoading || !paidAmount || paidAmount <= 0"
+        class="btn btn-success mt-3">
+  Process Payment
+</button>
+
+      </div>
+      <div *ngIf="currentSale.status === 'PAID'" class="alert alert-info mt-3">
+        This bill is fully paid.
+      </div>
+
+      <button (click)="printBill()" class="btn btn-info mt-3 ms-2">Print Bill</button>
+    </div>
+  </div>
+
+  <div *ngIf="!currentSale && !isLoading && !errorMessage">
+    <p>No bill generated yet for this prescription. Generating...</p>
+  </div>
+
+</div>

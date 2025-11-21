@@ -1,0 +1,87 @@
+<!-- ✅ Header -->
+<header class="admin-header">
+ <div>
+    <a class="navbar-brand d-flex align-items-center" href="maincomp">
+      <img src="assets\images\hospital-logo-vector_1277164-14205.avif" alt="" class="logo-img me-2" />
+      <span>Our Hospital</span>
+    </a>
+ </div>
+  <div class="admin-profile">Admin Profile</div>
+</header>
+
+<!-- ✅ Layout: Sidebar + Content -->
+<div class="layout">
+  <nav class="sidebar">
+     <h2>Admin Panel</h2>
+    <ul>
+        <li>
+        <a href="admin">Dashboard</a>
+      </li>
+
+        <li>
+        <a href="appList">Appointment List</a>
+      </li>
+
+      <div class="dropdown">
+        <button class="dropdown-btn">Patient</button>
+        <div class="dropdown-content">
+            <a href="patient">Add</a>
+            <a href="patientList">View</a>
+            <!-- <a href="patient">Search</a>
+            <a href="patient">Update</a> -->
+        </div>
+        </div>
+
+        <div class="dropdown">
+        <button class="dropdown-btn">Doctor</button>
+        <div class="dropdown-content">
+            <a href="doctor">Add</a>
+            <a routerLink="doctorList">View</a>
+            <!-- <a href="doctor">Search</a>
+            <a href="doctorList">Update</a> -->
+        </div>
+        </div>
+
+         <!-- <div class="dropdown">
+            <button class="dropdown-btn">Staff</button>
+            <div class="dropdown-content">
+                <a href="staff">Add</a>
+                <a href="staff">View</a>
+                <a href="staff">Search</a>
+                <a href="staff">Update</a>
+            </div>
+            </div> -->
+
+        <div class="dropdown">
+            <button class="dropdown-btn">Employee</button>
+            <div class="dropdown-content">
+                <a href="employee">Add</a>
+                <a href="empList">View</a>
+                <!-- <a href="employee">Search</a>
+                <a href="employee">Update</a> -->
+            </div>
+        </div>
+
+        
+        <li>
+        <a href="wallet">Wallet</a>
+      </li>
+
+
+      <li>
+        <a href="profitLoss">Loss & Profit</a>
+      </li>
+      <li>
+        <a href="report">Report</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+    
+    <!-- <h3>Welcome to the Admin Dashboard</h3>
+    <p>Select a module from the sidebar.</p> -->
+  </main>
+</div>

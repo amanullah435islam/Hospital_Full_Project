@@ -1,0 +1,20 @@
+<div class="container">
+  <h3>💳 Test Payment</h3>
+
+  <div class="form-group mb-2">
+    <label>Patient ID</label>
+    <input class="form-control" type="number" [(ngModel)]="payment.patientId">
+  </div>
+
+  <div class="form-group mb-2">
+    <label>Test Code</label>
+    <input class="form-control" type="text" [(ngModel)]="payment.testCode">
+  </div>
+
+  <div class="form-group mb-3">
+    <label>Amount</label>
+    <input class="form-control" type="number" [(ngModel)]="payment.amount">
+  </div>
+
+  <button class="btn btn-success" (click)="makePayment()">💰 Pay</button>
+</div>

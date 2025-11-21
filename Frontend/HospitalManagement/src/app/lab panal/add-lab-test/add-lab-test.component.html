@@ -1,0 +1,105 @@
+
+<div class="container-fluid full-form-wrapper">
+<h2 class="text-center">{{ formLabel }}</h2>
+<form [formGroup]="addForm" class="col-md-6">
+
+  <div class="form-group" class="aman">
+    <label>Test Code:</label>
+    <input type="number" class="form-control" formControlName="testCode" />
+  </div>
+  <div class="form-group" class="aman">
+    <label>Test Name:</label>
+    <input class="form-control" formControlName="testName" />
+  </div>
+
+ 
+  <div class="form-group" class="aman">
+    <label>Test Type:</label>
+    <input class="form-control" formControlName="testType" />
+  </div>
+
+  <div class="form-group" class="aman">
+    <label>Price:</label>
+    <input type="number" class="form-control" formControlName="price" />
+  </div>
+
+<div class="form-group"  class="aman">
+  <label>Unit:</label>
+ <select class="form-control" formControlName="unit">
+  <option value="">-- Select Unit --</option>
+  <option value="mg/dL">mg/dL (milligrams per deciliter)</option>
+  <option value="g/dL">g/dL (grams per deciliter)</option>
+  <option value="mmol/L">mmol/L (millimoles per liter)</option>
+  <option value="pg/mL">pg/mL (picograms per milliliter)</option>
+  <option value="ng/mL">ng/mL (nanograms per milliliter)</option>
+  <option value="IU/L">IU/L (International Units per liter)</option>
+  <option value="U/L">U/L (Units per liter)</option>
+</select>
+</div>
+
+
+  <div class="form-group" class="aman">
+    <label>Norma Range:</label>
+    <input class="form-control" formControlName="normalRange" />
+  </div>
+  <div class="form-group" class="aman">
+    <label>Result:</label>
+    <input class="form-control" formControlName="result" />
+  </div>
+
+  <button
+    class="btn btn-success"
+    [disabled]="addForm.invalid"
+    *ngIf="saveMode"
+    (click)="addTestList()"
+  >
+    Save
+  </button>
+  
+  <button
+    class="btn btn-success"
+    [disabled]="addForm.invalid"
+    *ngIf="!saveMode"
+    (click)="updateTestList()"
+  >
+    Update
+  </button>
+</form>
+</div>
+
+<h2 class="mt-4">TestList Details</h2>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Test Code</th>
+        <th>Test Name</th>
+        <th>Test Type</th>
+        <th>Price</th>
+        <th>Unit</th>
+        <th>NormalRange</th>
+        <th>Result</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of testLists">
+        <td>{{ p.id }}</td>
+        <td>{{ p.testCode }}</td>
+        <td>{{ p.testName }}</td>
+        <td>{{ p.testType }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.unit }}</td>
+        <td>{{ p.normalRange }}</td>
+        <td>{{ p.result }}</td>
+        <td>
+          <button class="btn btn-info btn-sm" (click)="editTestList(p)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteTestList(p)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

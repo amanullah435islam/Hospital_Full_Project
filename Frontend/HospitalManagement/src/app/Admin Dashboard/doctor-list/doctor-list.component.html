@@ -1,0 +1,61 @@
+<div class="product-list-container">
+  <!-- Loading state -->
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Product list -->
+  <div *ngIf="!isLoading && !errorMessage">
+      <div style="text-align: center;">
+  <h2>Doctor List</h2>
+</div><br><br><br>
+
+
+<!-- <div class="text-end mb-3">
+  <button class="btn btn-primary" [routerLink]="['/doctor']">+ Add Doctor</button>
+</div> -->
+
+
+  <div class="top-barx">
+  <button class="add-button" [routerLink]="['/doctor']">+ Add Doctor</button>
+</div>
+
+    
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Doctor Code</th>
+          <th>Doctor Name</th>
+          <th>Department</th>
+          <th>Contact</th>
+          <th>Availability</th>
+          <th>Email</th>
+          <th>Room Number</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of doctors" class="product-row">
+          <td>{{ product.id }}</td>
+          <td>{{ product.doctorCode }}</td>
+          <td>{{ product.doctorName}}</td>
+          <td>{{ product.specialize}}</td>
+          <td>{{ product.contact}}</td>
+          <td>{{ product.availability}}</td>
+          <td>{{ product.email }}</td>
+          <td>{{ product.roomNumber }}</td>
+          <!-- <td>{{ product.image}}</td> -->
+         <img [src]="'http://localhost:8080/image/' + product.image" height="70" width="70">
+          <td class="action-buttons"> 
+             <button (click)="editDoctor(product.id)">Edit</button>
+            <button (click)="deleteDoctor(product.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,98 @@
+<h2 class="text-center">{{ formLabel }}</h2>
+<form [formGroup]="addForm" class="col-md-6">
+    
+  
+  <!-- Patient Dropdown -->
+  <div class="col-md-6 mb-3" [formGroup]="addForm" class="aman">
+  <label class="form-label">Choose Patient</label>
+  <select formControlName="patientId" class="form-control" (change)="onPatientSelection($event)">
+    <option value="">-- Select --</option>
+    <option *ngFor="let entity of ptns" [value]="entity.id">
+      {{ entity.patientName }}
+    </option>
+  </select>
+</div>
+
+  ...
+
+  
+  <!-- hello  world! -->
+
+  <!-- Doctor Dropdown -->
+  <div class="col-md-6 mb-3" [formGroup]="addForm" class="aman">
+  <label class="form-label">Choose Doctor</label>
+  <select formControlName="doctorId" class="form-control" (change)="onDoctorSelection($event)">
+    <option value="">-- Select --</option>
+    <option *ngFor="let entity of dcrs" [value]="entity.id">
+      {{ entity.doctorName }}
+    </option>
+  </select>
+</div>
+
+   <div class="form-group" class="aman">
+    <label>Appointment Code:</label>
+    <input type="number" class="form-control" formControlName="appointmentCode" />
+  </div> 
+  
+  <div class="form-group" class="aman">
+    <label>Date:</label>
+    <input type="date" class="form-control" formControlName="date" />
+  </div>
+ 
+ <div class="form-group"  class="aman">
+  <label>Department:</label>
+  <select class="form-control" formControlName="department">
+    <option value="">-- Select Department --</option>
+    <option value="Pathology">Pathology</option>
+    <option value="Neurology">Neurology</option>
+    <option value="Cardiology">Cardiology</option>
+    <option value="Orthopedics">Orthopedics</option>
+    <option value="Pediatrics">Pediatrics</option>
+    <option value="Dermatologist">Dermatologist</option>
+    <option value="Ophthalmologist">Ophthalmologist</option>
+  </select>
+</div>
+
+  <div class="form-group" class="aman">
+    <label>Status:</label>
+    <input type="number" class="form-control" formControlName="status" />
+  </div>
+   
+ <div class="form-group"  class="aman">
+  <label>Madicle Histry:</label>
+  <select class="form-control" formControlName="madicleHistry">
+    <option value="">-- Select Medical History --</option>
+    <option value="Diabetes">Diabetes</option>
+    <option value="Hypertension">Hypertension</option>
+    <option value="Heart Disease">Heart Disease</option>
+    <option value="Asthma">Asthma</option>
+    <option value="Cancer">Cancer</option>
+    <option value="Thyroid">Thyroid Disorder</option>
+    <option value="None">None</option>
+  </select>
+</div>
+
+  <div class="form-group" class="aman">
+    <label>Booking Date:</label>
+    <input type="date" class="form-control" formControlName="bookingDate" />
+  </div>
+
+  <div class="form-group" class="aman">
+  <label>Payment Status:</label>
+  <select class="form-control" formControlName="paymentStatus">
+    <option value="">-- Select Status --</option>
+    <option value="Paid">Paid</option>
+    <option value="Due">Due</option>
+  </select>
+</div>
+
+  <button
+    class="btn btn-success"
+    [disabled]="addForm.invalid"
+    *ngIf="saveMode"
+    (click)="addAppointment()"
+  >
+    Save
+  </button>
+</form>
+

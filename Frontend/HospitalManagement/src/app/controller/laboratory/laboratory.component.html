@@ -1,0 +1,56 @@
+<div class="lab-container">
+  <div class="lab-card">
+
+    <h2 class="section-title">🧪 Lab Tests From Prescription</h2>
+
+    <!-- Patient Dropdown -->
+    <div class="row">
+      <div class="col-md-6 mb-3 aman">
+        <label class="form-label">Choose Patient</label>
+        <select class="form-control" [(ngModel)]="selectedPatientId">
+          <option value="">-- Select --</option>
+          <option *ngFor="let entity of ptns" [value]="entity.id">
+            {{ entity.patientName }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-6 mb-3 aman d-flex align-items-end">
+        <button class="btn btn-primary" (click)="searchPatient()">🔍 Search</button>
+      </div>
+    </div>
+
+    <!-- Lab Test Table (Only show after search) -->
+    <div *ngIf="searched && tests.length > 0">
+      <table class="lab-table table table-bordered table-striped">
+        <thead class="table-success">
+          <tr>
+            <th>Test Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let test of tests; let i = index">
+            <td>{{ test.testName }}</td>
+            <td>{{ test.testType }}</td>
+            <td>{{ test.description }}</td>
+            <td>
+              <button class="btn btn-sm btn-primary me-1" (click)="onReport(test, i)">Report</button>
+              <button class="btn btn-sm btn-success" (click)="onTest(test, i)">Test</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Optional: Message if no test found -->
+    <div *ngIf="searched && tests.length === 0" class="alert alert-warning mt-3">
+      No Lab Tests found for this patient.
+    </div>
+
+  </div>
+</div>
+
+

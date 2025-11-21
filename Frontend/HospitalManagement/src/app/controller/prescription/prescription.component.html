@@ -1,0 +1,106 @@
+<!-- prescription.component.html -->
+<div class="prescription-container">
+  <!-- Patient and Doctor Cards -->
+  <div class="card-section">
+    <div class="card patient-card">
+      <h3>Patient Details</h3>
+    <p><strong>ID: </strong> {{ patient.id }}</p>
+    <p><strong>Code:</strong> {{ patient.patientCode }}</p>
+    <p><strong>Name:</strong> {{ patient.patientName }}</p>
+    <p><strong>Age:</strong> {{ patient.age }}</p>
+    <p><strong>Date Of birth: </strong> {{ patient.dob }}</p>
+    <p><strong>Gender:</strong> {{ patient.gender }}</p>
+    <p><strong>Contact:</strong> {{ patient.phone }}</p>
+    <p><strong>LastVisit:</strong> {{ patient.lastVisit }}</p>
+    </div>
+
+    <div class="card doctor-card">
+      <h3>Doctor Details</h3>
+      <p><strong>ID:</strong> {{ doctor.id }}</p>
+      <p><strong>Code:</strong> {{ doctor.doctorCode}}</p>
+      <p><strong>Name:</strong> {{ doctor.doctorName}}</p>
+      <p><strong>Specialize:</strong> {{ doctor.specialize }}</p>
+      <p><strong>Contact:</strong> {{ doctor.contact }}</p>
+      <p><strong>Availability:</strong> {{ doctor.availability }}</p>
+      <p><strong>Email:</strong> {{ doctor.email }}</p>
+      <p><strong>RoomNumber:</strong> {{ doctor.roomNumber }}</p> 
+    </div>
+
+
+    <div class="card appointment-card">
+      <h3>Appointment Details</h3>
+      <p><strong>ID:</strong> {{ appointment.id }}</p>
+      <p><strong>Code:</strong> {{ appointment.appointmentCode}}</p>
+      <p><strong>Date:</strong> {{ appointment.date }}</p>
+      <p><strong>Department:</strong> {{ appointment.department }}</p>
+      <p><strong>Status:</strong> {{ appointment.status}}</p>
+      <p><strong>Madicle Histry:</strong> {{ appointment.madicleHistry }}</p> 
+      <p><strong>Booking Date:</strong> {{ appointment.bookingDate }}</p> 
+      <p><strong>Payment Status:</strong> {{ appointment.paymentStatus }}</p> 
+    </div>
+  </div>
+
+  <div class="section">
+  <button (click)="addMedicine()">+ Add Medicine</button>
+
+  <div *ngFor="let med of medicines; let i = index" class="medicine-form">
+    <input [(ngModel)]="med.medicineCode" placeholder="Test Code" name="medicineCode{{i}}">
+    <!-- Dropdown for medicine name -->
+    <select [(ngModel)]="med.medicineName" name="medicineName{{i}}">
+      <option value="">-- Select Medicine --</option>
+      <option *ngFor="let option of medicineOptions" [value]="option">{{ option }}</option>
+    </select>
+
+    <!-- Other fields -->
+    <input [(ngModel)]="med.dose" placeholder="Dose" name="dose{{i}}">
+    <input [(ngModel)]="med.frequency" placeholder="Frequency" name="frequency{{i}}">
+    <input [(ngModel)]="med.duration" placeholder="Duration" name="duration{{i}}">
+
+    <!-- Remove button -->
+    <button (click)="removeMedicine(i)">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+    
+  </div>
+</div>
+
+  <div class="section">
+  <button (click)="addTest()">+ Add Lab Test</button>
+
+  <div *ngFor="let test of tests; let j = index" class="test-form">
+
+    <input [(ngModel)]="test.testCode" placeholder="Medicine Code" name="medicineCode{{j}}">
+    <!-- Test Name Dropdown -->
+    <select [(ngModel)]="test.testName" name="testName{{j}}">
+      <option value="">-- Select Test Name --</option>
+      <option *ngFor="let name of testNames" [value]="name">{{ name }}</option>
+    </select>
+    <!-- Test Type Dropdown -->
+    <select [(ngModel)]="test.testType" name="testType{{j}}">
+      <option value="">-- Select Test Type --</option>
+      <option *ngFor="let type of testTypes" [value]="type">{{ type }}</option>
+    </select>
+    <input [(ngModel)]="test.description" placeholder="Description" name="description{{j}}">
+
+    <select [(ngModel)]="test.unit" name="unit{{j}}">
+      <option value="">-- Select Unit --</option>
+      <option *ngFor="let unit of unitOptions" [value]="unit">{{ unit }}</option>
+    </select>
+
+    <input [(ngModel)]="test.normalRange" placeholder="Normal Range" name="normalRange{{j}}">
+    <button (click)="removeTest(j)">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+
+  </div>
+</div>
+
+
+  
+
+  <!-- Prescribe Button -->
+  <div class="prescribe-btn">
+    <button (click)="submitPrescription()">Prescribe</button>
+  </div>
+</div>
+
